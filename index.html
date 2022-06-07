@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+    <section class="user-details">
+      <section class="player-details">
+        <h2>Player 1</h2>
+        <p id="playerWins">Wins: 0<p>
+      </section>
+      <h1>Rock🪨 Paper📃 Scissors✂️</h1>
+      <h3>Choose your game mode</h3>
+      <section class="cpu-details">
+        <h2>CPU</h2>
+        <p id="cpuWins">Wins: 0<p>
+      </section>
+    </section>
+
+    <section class="view main-menu">
+      <section class="game-mode-choice">
+        <button class="classic-mode-button">
+          <p class="mode-name" id="classicMode">Classic Mode</p>
+          <p class="mode-rules">Rules: Rock>Scissors, Paper>Rock, Scissors>Paper</p>
+        </button>
+        <button class="kirbo-mode-button">
+          <p class="mode-name" id="kirboMode">Kirbo Mode</p>
+          <p class="mode-rules">Rules: Hammer>Rock, Sword>Paper&Hammer, Scissor>Hammer&Paper, Paper>Hammer</p>
+        </button>
+      </section>
+    </section>
+
+    <section class="view classic-mode-view hidden">
+      <h3>Make your choice</h3>
+      <button class="rock-button hidden"><img class="rock-image" src="./assets/rock.png" alt="rock"></button>
+      <button class="paper-button hidden"><img class="paper-image" src="./assets/paper.png" alt="paper"></button>
+      <button class="scissor-button hidden"><img class="scissor-image" src="./assets/scissor.png" alt="scissors"></button>
+    </section>
+
+    <section class="view kirbo-mode hidden">
+      <!-- //add these in? -->
+      <h4>Who will win? KIYAHAHAHAHA</h4>
+      <button class="rock-button hidden"><img class="rock-image" src="./assets/rock.png" alt="rock"></button>
+      <button class="paper-button hidden"><img class="paper-image" src="./assets/paper.png" alt="paper"></button>
+      <button class="scissor-button hidden"><img class="scissor-image" src="./assets/scissor.png" alt="scissors"></button>
+      <button class="hammer-button hidden"><img class="kirbo-image" src="./assets/hammer.png" alt="paper"></button>
+      <button class="sword-button hidden"><img class="metaknight-image" src="./assets/sword.png" alt="scissors"></button>
+    </section>
+
+    <button class="back-button hidden">Change Mode</button>
+  </body>
