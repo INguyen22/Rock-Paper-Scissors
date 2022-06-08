@@ -12,6 +12,7 @@ class Game {
     if (this.player1Choice === game) {
       this.player2Input = this.player2.takeTurnKirbo()
   }
+}
   checkWin() {
     if (this.player1Input > this.player2Input) {
       return 'Player1 Wins!'
