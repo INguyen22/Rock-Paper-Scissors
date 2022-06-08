@@ -14,8 +14,8 @@
         <p id="playerWins">Wins: 0<p>
       </section>
       <section class="header">
-      <h1>Rock🪨 Paper📃 Scissors✂️</h1>
-      <h3>Choose your game mode</h3>
+        <h1>Rock🪨 Paper📃 Scissors✂️</h1>
+        <h3>Choose your game mode</h3>
       </section>
       <section class="player-details" id="cpu">
         <h2>CPU</h2>
@@ -25,12 +25,10 @@
 
     <section class="main-menu">
         <button class="mode-button" id="classicButton">
-          <p class="mode-name" id="classicMode">Classic Mode</p>
-          <p class="mode-rules">Rules: Rock>Scissors, Paper>Rock,<br> Scissors>Paper</p>
+          Classic Mode<br><br>Rules: Rock>Scissors, Paper>Rock,<br> Scissors>Paper
         </button>
         <button class="mode-button" id="kirboButton">
-          <p class="mode-name" id="kirboMode">Kirbo Mode</p>
-          <p class="mode-rules">Rules: Hammer>Rock, Sword>Paper&Hammer,<br> Scissor>Hammer&Paper, Paper>Hammer</p>
+          Kirbo Mode<br><br>Rules: Hammer>Rock, Sword>Paper&Hammer,<br> Scissor>Hammer&Paper, Paper>Hammer
         </button>
     </section>
 
@@ -46,18 +44,22 @@
     <section class="kirbo-mode hidden">
       <!-- //add these in? -->
       <!-- <h4>Who will win? KIYAHAHAHAHA</h4> -->
-      <section class="classic-mode-view hidden">
-        <button class="input-button hidden" id="rockButton"><img class="image" src="./assets/rock.png" alt="rock"></button>
-        <button class="input-button hidden" id="paperButton"><img class="image" src="./assets/paper3.png" alt="paper"></button>
-        <button class="input-button hidden" id="scissorButton"><img class="image" src="./assets/scissor.png" alt="scissors"></button>
+      <section class="classic-mode-view">
+        <button class="input-button" id="rockButton"><img class="image" src="./assets/rock.png" alt="rock"></button>
+        <button class="input-button" id="paperButton"><img class="image" src="./assets/paper3.png" alt="paper"></button>
+        <button class="input-button" id="scissorButton"><img class="image" src="./assets/scissor.png" alt="scissors"></button>
       </section>
       <section class="bottom-row">
-        <button class="input-button hidden" id="hammerButton"><img class="image" src="./assets/hammer.png" alt="paper"></button>
-        <button class="input-button hidden" id="swordButton"><img class="image" src="./assets/sword.png" alt="scissors"></button>
+        <button class="input-button" id="hammerButton"><img class="image" src="./assets/hammer.png" alt="paper"></button>
+        <button class="input-button" id="swordButton"><img class="image" src="./assets/sword.png" alt="scissors"></button>
       </section>
     </section>
 
     <section class="back-button-section">
       <button class="back-button hidden">Change Mode</button>
     </section>
+
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="player.js"></script>
+    <script type="text/javascript" src="main.js"></script>
   </body>
