@@ -3,8 +3,8 @@ class Player {
     this.name = name
     this.token = "./assets/kirbo.png"
     this.wins = 0
-    this.classic = [rock, paper, scissors]
-    this.kirbo = [rock, paper, scissors, hammer, sword]
+    this.classicChoices = [rock, paper, scissors]
+    this.kirboChoices = [rock, paper, scissors, hammer, sword]
   }
   takeTurnClassic() {
     this.classic = randomChoiceGenerator(3)
