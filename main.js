@@ -16,19 +16,12 @@ var kirboMode = document.querySelector('.kirbo-mode')
 //event listeners
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
-
+changeModeButton.addEventListener('click', changeMode)
 //event handlers
 function playerChoseClassic() {
   h3.innerText = "Make your choice"
   hideModeButtons()
   showClassicChoices()
-}
-
-function showClassicChoices() {
-  rockButton.classList.remove('hidden')
-  paperButton.classList.remove('hidden')
-  scissorButton.classList.remove('hidden')
-  changeModeButton.classList.remove('hidden')
 }
 
 function playerChoseKirbo() {
@@ -38,9 +31,35 @@ function playerChoseKirbo() {
   showKirboChoices()
 }
 
+function changeMode() {
+  showModeButtons()
+  hideInputButtons()
+}
+
+//hide and show element functions
+function showClassicChoices() {
+  rockButton.classList.remove('hidden')
+  paperButton.classList.remove('hidden')
+  scissorButton.classList.remove('hidden')
+  changeModeButton.classList.remove('hidden')
+}
+
 function showKirboChoices() {
   kirboMode.classList.remove('hidden')
   changeModeButton.classList.remove('hidden')
+}
+
+function hideInputButtons() {
+  kirboMode.classList.add('hidden')
+  rockButton.classList.add('hidden')
+  paperButton.classList.add('hidden')
+  scissorButton.classList.add('hidden')
+  changeModeButton.classList.add('hidden')
+}
+
+function showModeButtons() {
+  classicButton.style.display = ''
+  kirboButton.style.display = ''
 }
 
 function hideModeButtons() {
