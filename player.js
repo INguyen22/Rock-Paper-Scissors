@@ -7,10 +7,10 @@ class Player {
     this.kirboChoices = [rock, paper, scissors, hammer, sword]
 }
   takeTurnClassic() {
-    this.classic = randomChoiceGenerator(3)
+    this.classicChoices[this.randomChoiceGenerator(3)]
 }
   takeTurnKirbo() {
-    this.kirbo = randomChoiceGenerator(5)
+    this.kirboChoices[this.randomChoiceGenerator(5)]
 }
   randomChoiceGenerator(modeChoiceOptions) {
       return Math.floor(Math.random() * modeChoiceOptions)

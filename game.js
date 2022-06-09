@@ -6,18 +6,20 @@ class Game {
     this.player1Input = input
   }
   checkMode() {
-    if (this.player1Input === 'classic') {
+    if (this.gameMode === 'classic') {
       this.player2Input = this.player2.takeTurnClassic()
     }
-    if (this.player1Input === game) {
+    if (this.gameMode === game) {
       this.player2Input = this.player2.takeTurnKirbo()
   }
 }
   checkWin() {
     if (this.player1Input > this.player2Input) {
+      this.player1.wins ++
       return 'Player1 Wins!'
     }
     if (this.player1Input < this.player2Input) {
+      this.player2.wins ++
       return 'CPU Wins!'
     }
     if (this.player1Input === this.player2Input) {

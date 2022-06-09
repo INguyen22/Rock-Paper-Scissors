@@ -8,7 +8,6 @@ var hammerButton = document.getElementById('hammerButton')
 var swordButton = document.getElementById('swordButton')
 var changeModeButton = document.querySelector('.back-button')
 
-
 var h1 = document.querySelector('h1')
 var h3 = document.querySelector('h3')
 var mainMenu = document.querySelector('.main-menu')
@@ -17,6 +16,11 @@ var kirboMode = document.querySelector('.kirbo-mode')
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
 changeModeButton.addEventListener('click', changeMode)
+rockButton.addEventListener('click', )
+paperButton.addEventListener('click', )
+scissorButton.addEventListener('click', )
+hammerButton.addEventListener('click', )
+swordButton.addEventListener('click', )
 //event handlers
 function playerChoseClassic() {
   h3.innerText = "Make your choice"
@@ -39,7 +43,7 @@ function changeMode() {
 }
 
 function classicMode() {
-
+  
 }
 
 //hide and show element functions
