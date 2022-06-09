@@ -63,24 +63,23 @@ function changeMode() {
 
 function classicAndKirbo(choice) {
   console.log('choice', choice)
-  console.log(event.target.id)
   console.log('mode2', mode)
   game = new Game (user, cpu, mode, choice)
   game.checkMode()
-    console.log('who is the winner', game.checkMode())
   judge()
 }
 
 function judge() {
-  if (game.winner === "Player1 Wins!") {
+  if (game.winner.checkWin() === "Player1 Wins!") {
     return h1.innerText = "You win!"
   }
-  if (game.winner === "CPU Wins!") {
+  if (game.winner.checkWin() === "CPU Wins!") {
     return h1.innerText = "You LOSE!"
   }
-  if (game.winner === "DRAW!") {
+  if (game.winner.checkWin() === "DRAW!") {
     return h1.innerText = "It's a draw! Rematch time!"
   }
+    console.log('who is the winner', game.winner)
 }
 
 //hide and show element functions

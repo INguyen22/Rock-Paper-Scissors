@@ -10,7 +10,7 @@ class Game {
     if (this.gameMode === 'classic') {
       this.player2Input = this.player2.takeTurnClassic()
     }
-    if (this.gameMode === mode) {
+    if (this.gameMode === 'kirbo') {
       this.player2Input = this.player2.takeTurnKirbo()
   }
 }
