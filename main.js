@@ -25,15 +25,21 @@ function playerChoseClassic() {
 }
 
 function playerChoseKirbo() {
-  h1.innerHTML = "./assets/marx.png"
+  h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:400px">`
   h3.innerText = "Who will win? KIYAHAHAHAHA"
   hideModeButtons()
   showKirboChoices()
 }
 
 function changeMode() {
+  h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
+  h3.innerText = 'Choose your game mode'
   showModeButtons()
   hideInputButtons()
+}
+
+function classicMode() {
+
 }
 
 //hide and show element functions
