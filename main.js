@@ -16,11 +16,27 @@ var kirboMode = document.querySelector('.kirbo-mode')
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
 changeModeButton.addEventListener('click', changeMode)
-rockButton.addEventListener('click', )
-paperButton.addEventListener('click', )
-scissorButton.addEventListener('click', )
-hammerButton.addEventListener('click', )
-swordButton.addEventListener('click', )
+
+rockButton.addEventListener('click', function() {
+  classicAndKirbo('rock')
+})
+paperButton.addEventListener('click', function() {
+  classicAndKirbo('paper')
+})
+scissorButton.addEventListener('click', function() {
+  classicAndKirbo('scissors')
+})
+hammerButton.addEventListener('click', function() {
+  classicAndKirbo('hammer')
+})
+swordButton.addEventListener('click',function() {
+  classicAndKirbo('sword')
+})
+
+var user = new Player('user')
+var cpu = new Player('CPU')
+var mode = 'classic'
+var game;
 //event handlers
 function playerChoseClassic() {
   h3.innerText = "Make your choice"
@@ -31,6 +47,8 @@ function playerChoseClassic() {
 function playerChoseKirbo() {
   h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:400px">`
   h3.innerText = "Who will win? KIYAHAHAHAHA"
+  mode = 'kirbo'
+  console.log('mode', mode)
   hideModeButtons()
   showKirboChoices()
 }
@@ -38,12 +56,31 @@ function playerChoseKirbo() {
 function changeMode() {
   h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
   h3.innerText = 'Choose your game mode'
+  mode = 'classic'
   showModeButtons()
   hideInputButtons()
 }
 
-function classicMode() {
-  
+function classicAndKirbo(choice) {
+  console.log('choice', choice)
+  console.log(event.target.id)
+  console.log('mode2', mode)
+  game = new Game (user, cpu, mode, choice)
+  game.checkMode()
+    console.log('who is the winner', game.checkMode())
+  judge()
+}
+
+function judge() {
+  if (game.winner === "Player1 Wins!") {
+    return h1.innerText = "You win!"
+  }
+  if (game.winner === "CPU Wins!") {
+    return h1.innerText = "You LOSE!"
+  }
+  if (game.winner === "DRAW!") {
+    return h1.innerText = "It's a draw! Rematch time!"
+  }
 }
 
 //hide and show element functions
