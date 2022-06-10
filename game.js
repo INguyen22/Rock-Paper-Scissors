@@ -1,31 +1,61 @@
 class Game {
-  constructor(player1, cpu, game, input) {
+  constructor(player1, cpu, mode, input) {
     this.player1 = player1
     this.player2 = cpu
-    this.gameMode = game || 'classic'
+    this.gameMode = mode || 'classic'
     this.player1Input = input
+    this.winner = ''
   }
   checkMode() {
-    if (this.player1Choice === 'classic') {
+    if (this.gameMode === 'classic') {
       this.player2Input = this.player2.takeTurnClassic()
     }
-    if (this.player1Choice === game) {
+    if (this.gameMode === 'kirbo') {
       this.player2Input = this.player2.takeTurnKirbo()
   }
 }
   checkWin() {
-    if (this.player1Input > this.player2Input) {
-      return 'Player1 Wins!'
+    console.log('player1input',this.player1Input)
+    console.log('player2input',this.player2Input)
+    console.log(this.winner)
+
+    if (this.player1Input === 'rock' && this.player2Input === 'scissors') {
+      this.player1.wins ++
+      return this.winner = 'Player1 Wins!'
     }
-  }
-  checkLose() {
-    if (this.player1Input < this.player2Input) {
-      return 'CPU Wins!'
+    if (this.player1Input === 'rock' && this.player2Input === 'paper') {
+      return this.winner = 'CPU Wins!'
     }
-  }
-  checkDraw() {
-    if (this.player1Input === this.player2Input) {
-      return 'DRAW!'
+    if (this.player1Input === 'rock' && this.player2Input === 'rock') {
+      return this.winner = 'Draw!'
+    }
+    //paper rules
+    if (this.player1Input === 'paper' && this.player2Input === 'scissors') {
+      return this.winner = 'CPU wins!'
+    }
+    if (this.player1Input === 'paper' && this.player2Input === 'rock') {
+      return this.winner = 'Player1 wins!'
+    }
+    if (this.player1Input === 'paper' && this.player2Input === 'paper') {
+      return this.winner = 'Draw!'
+    }
+    //scissors rules
+    if (this.player1Input === 'scissors' && this.player2Input === 'scissors') {
+      return this.winner = 'Draw!'
+    }
+    if (this.player1Input === 'scissors' && this.player2Input === 'rock') {
+      return this.winner = 'CPU wins!'
+    }
+    if (this.player1Input === 'scissors' && this.player2Input === 'paper') {
+      return this.winner = 'Player1 wins!'
     }
   }
 }
+
+// if (this.player1Input < this.player2Input) {
+//   this.player2.wins ++
+//   return this.winner = 'CPU Wins!'
+// }
+// if (this.player1Input === this.player2Input) {
+//   return this.winner = 'DRAW!'
+// }

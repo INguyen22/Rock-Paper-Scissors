@@ -8,7 +8,6 @@ var hammerButton = document.getElementById('hammerButton')
 var swordButton = document.getElementById('swordButton')
 var changeModeButton = document.querySelector('.back-button')
 
-
 var h1 = document.querySelector('h1')
 var h3 = document.querySelector('h3')
 var mainMenu = document.querySelector('.main-menu')
@@ -17,6 +16,29 @@ var kirboMode = document.querySelector('.kirbo-mode')
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
 changeModeButton.addEventListener('click', changeMode)
+
+rockButton.addEventListener('click', function() {
+  classicAndKirbo('rock') //0
+})
+paperButton.addEventListener('click', function() {
+  classicAndKirbo('paper') //1
+})
+scissorButton.addEventListener('click', function() {
+  classicAndKirbo('scissors') //2
+})
+hammerButton.addEventListener('click', function() {
+  classicAndKirbo('hammer')
+})
+swordButton.addEventListener('click',function() {
+  classicAndKirbo('sword')
+})
+
+var user = new Player('user')
+var cpu = new Player('CPU')
+var mode = 'classic'
+var game;
+// var playerChoice;
+// var cpuChoice;
 //event handlers
 function playerChoseClassic() {
   h3.innerText = "Make your choice"
@@ -25,15 +47,41 @@ function playerChoseClassic() {
 }
 
 function playerChoseKirbo() {
-  h1.innerHTML = "./assets/marx.png"
+  h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:400px">`
   h3.innerText = "Who will win? KIYAHAHAHAHA"
+  mode = 'kirbo'
+  console.log('mode', mode)
   hideModeButtons()
   showKirboChoices()
 }
 
 function changeMode() {
+  h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
+  h3.innerText = 'Choose your game mode'
+  mode = 'classic'
   showModeButtons()
   hideInputButtons()
+}
+
+function classicAndKirbo(choice) {
+  // console.log('choice', choice)
+  // console.log('mode2', mode)
+  game = new Game (user, cpu, mode, choice)
+  game.checkMode()
+  judge()
+}
+
+function judge() {
+  if (game.checkWin() === "Player1 wins!") {
+    return h1.innerText = "You win!"
+  }
+  if (game.checkWin() === "CPU wins!") {
+    return h1.innerText = "You LOSE!"
+  }
+  if (game.checkWin() === "Draw!") {
+    return h1.innerText = "It's a draw! Rematch time!"
+  }
+    console.log('who is the winner', game.winner)
 }
 
 //hide and show element functions
