@@ -17,7 +17,6 @@ class Player {
 }
   randomChoiceGenerator(modeChoiceOptions) {
       //return Math.floor(Math.random() * modeChoiceOptions)
-      console.log('number', number)
     var number = Math.floor(Math.random() * modeChoiceOptions)
       if (number === 0) {
         number = 'rock'
@@ -27,6 +26,12 @@ class Player {
       }
       if (number === 2) {
         number = 'scissors'
+      }
+      if (number === 3) {
+        number = 'hammer'
+      }
+      if (number === 4) {
+        number = 'sword'
       }
       return number
     }

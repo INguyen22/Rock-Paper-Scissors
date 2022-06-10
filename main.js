@@ -12,6 +12,9 @@ var h1 = document.querySelector('h1')
 var h3 = document.querySelector('h3')
 var mainMenu = document.querySelector('.main-menu')
 var kirboMode = document.querySelector('.kirbo-mode')
+var playerWins = document.getElementById('playerWins')
+var cpuWins = document.getElementById('cpuWins')
+
 //event listeners
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
@@ -27,18 +30,17 @@ scissorButton.addEventListener('click', function() {
   classicAndKirbo('scissors') //2
 })
 hammerButton.addEventListener('click', function() {
-  classicAndKirbo('hammer')
+  classicAndKirbo('hammer') //3
 })
 swordButton.addEventListener('click',function() {
-  classicAndKirbo('sword')
+  classicAndKirbo('sword') //4
 })
 
 var user = new Player('user')
 var cpu = new Player('CPU')
 var mode = 'classic'
 var game;
-// var playerChoice;
-// var cpuChoice;
+
 //event handlers
 function playerChoseClassic() {
   h3.innerText = "Make your choice"
@@ -50,7 +52,6 @@ function playerChoseKirbo() {
   h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:400px">`
   h3.innerText = "Who will win? KIYAHAHAHAHA"
   mode = 'kirbo'
-  console.log('mode', mode)
   hideModeButtons()
   showKirboChoices()
 }
@@ -72,17 +73,37 @@ function classicAndKirbo(choice) {
 }
 
 function judge() {
-  if (game.checkWin() === "Player1 wins!") {
-    return h1.innerText = "You win!"
+  if (game.checkWin() === "Player1 Wins!") {
+    h1.innerText = "You win!"
+    playerWins.innerText = `Wins: ${game.player1.wins}`
+    h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+    //delayRestart()
   }
-  if (game.checkWin() === "CPU wins!") {
-    return h1.innerText = "You LOSE!"
+  if (game.checkWin() === "CPU Wins!") {
+    h1.innerText = "You LOSE!"
+    cpuWins.innerText = `Wins: ${game.player2.wins}`
+    h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+    //delayRestart()
   }
   if (game.checkWin() === "Draw!") {
-    return h1.innerText = "It's a draw! Rematch time!"
+    h1.innerText = "It's a draw! Rematch time!"
+    h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+    //delayRestart()
   }
-    console.log('who is the winner', game.winner)
 }
+
+function delayRestart() {
+  setTimeout(restartGame, 3000)
+}
+
+function restartGame() {
+  location.reload()
+}
+
+
+
+
+
 
 //hide and show element functions
 function showClassicChoices() {
