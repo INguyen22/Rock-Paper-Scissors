@@ -15,16 +15,47 @@ class Game {
   }
 }
   checkWin() {
-    if (this.player1Input > this.player2Input) {
+    console.log('player1input',this.player1Input)
+    console.log('player2input',this.player2Input)
+    console.log(this.winner)
+
+    if (this.player1Input === 'rock' && this.player2Input === 'scissors') {
       this.player1.wins ++
       return this.winner = 'Player1 Wins!'
     }
-    if (this.player1Input < this.player2Input) {
-      this.player2.wins ++
+    if (this.player1Input === 'rock' && this.player2Input === 'paper') {
       return this.winner = 'CPU Wins!'
     }
-    if (this.player1Input === this.player2Input) {
-      return this.winner = 'DRAW!'
+    if (this.player1Input === 'rock' && this.player2Input === 'rock') {
+      return this.winner = 'Draw!'
+    }
+    //paper rules
+    if (this.player1Input === 'paper' && this.player2Input === 'scissors') {
+      return this.winner = 'CPU wins!'
+    }
+    if (this.player1Input === 'paper' && this.player2Input === 'rock') {
+      return this.winner = 'Player1 wins!'
+    }
+    if (this.player1Input === 'paper' && this.player2Input === 'paper') {
+      return this.winner = 'Draw!'
+    }
+    //scissors rules
+    if (this.player1Input === 'scissors' && this.player2Input === 'scissors') {
+      return this.winner = 'Draw!'
+    }
+    if (this.player1Input === 'scissors' && this.player2Input === 'rock') {
+      return this.winner = 'CPU wins!'
+    }
+    if (this.player1Input === 'scissors' && this.player2Input === 'paper') {
+      return this.winner = 'Player1 wins!'
     }
   }
 }
+
+// if (this.player1Input < this.player2Input) {
+//   this.player2.wins ++
+//   return this.winner = 'CPU Wins!'
+// }
+// if (this.player1Input === this.player2Input) {
+//   return this.winner = 'DRAW!'
+// }

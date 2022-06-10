@@ -18,13 +18,13 @@ kirboButton.addEventListener('click', playerChoseKirbo)
 changeModeButton.addEventListener('click', changeMode)
 
 rockButton.addEventListener('click', function() {
-  classicAndKirbo('rock')
+  classicAndKirbo('rock') //0
 })
 paperButton.addEventListener('click', function() {
-  classicAndKirbo('paper')
+  classicAndKirbo('paper') //1
 })
 scissorButton.addEventListener('click', function() {
-  classicAndKirbo('scissors')
+  classicAndKirbo('scissors') //2
 })
 hammerButton.addEventListener('click', function() {
   classicAndKirbo('hammer')
@@ -37,6 +37,8 @@ var user = new Player('user')
 var cpu = new Player('CPU')
 var mode = 'classic'
 var game;
+// var playerChoice;
+// var cpuChoice;
 //event handlers
 function playerChoseClassic() {
   h3.innerText = "Make your choice"
@@ -62,21 +64,21 @@ function changeMode() {
 }
 
 function classicAndKirbo(choice) {
-  console.log('choice', choice)
-  console.log('mode2', mode)
+  // console.log('choice', choice)
+  // console.log('mode2', mode)
   game = new Game (user, cpu, mode, choice)
   game.checkMode()
   judge()
 }
 
 function judge() {
-  if (game.winner.checkWin() === "Player1 Wins!") {
+  if (game.checkWin() === "Player1 wins!") {
     return h1.innerText = "You win!"
   }
-  if (game.winner.checkWin() === "CPU Wins!") {
+  if (game.checkWin() === "CPU wins!") {
     return h1.innerText = "You LOSE!"
   }
-  if (game.winner.checkWin() === "DRAW!") {
+  if (game.checkWin() === "Draw!") {
     return h1.innerText = "It's a draw! Rematch time!"
   }
     console.log('who is the winner', game.winner)
