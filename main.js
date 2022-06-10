@@ -14,7 +14,9 @@ var mainMenu = document.querySelector('.main-menu')
 var kirboMode = document.querySelector('.kirbo-mode')
 var playerWins = document.getElementById('playerWins')
 var cpuWins = document.getElementById('cpuWins')
-
+var body = document.querySelector('body')
+var playerIcon = document.querySelector('.player-icon')
+var cpuIcon = document.querySelector('.enemy-icon')
 //event listeners
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
@@ -49,17 +51,15 @@ function playerChoseClassic() {
 }
 
 function playerChoseKirbo() {
-  h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:400px">`
-  h3.innerText = "Who will win? KIYAHAHAHAHA"
   mode = 'kirbo'
+  console.log(mode)
+  kirboProperties()
   hideModeButtons()
   showKirboChoices()
 }
 
 function changeMode() {
-  h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
-  h3.innerText = 'Choose your game mode'
-  mode = 'classic'
+  mainMenuDefault()
   showModeButtons()
   hideInputButtons()
 }
@@ -68,37 +68,44 @@ function classicAndKirbo(choice) {
   // console.log('choice', choice)
   // console.log('mode2', mode)
   game = new Game (user, cpu, mode, choice)
+  console.log(mode)
   game.checkMode()
   judge()
 }
 
 function judge() {
+
   if (game.checkWin() === "Player1 Wins!") {
+    console.log('win')
+    game.player1.wins++
     h1.innerText = "You win!"
     playerWins.innerText = `Wins: ${game.player1.wins}`
     h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
     //delayRestart()
   }
-  if (game.checkWin() === "CPU Wins!") {
+  else if (game.checkWin() === "CPU Wins!") {
+    console.log('win2')
+    game.player2.wins++
     h1.innerText = "You LOSE!"
     cpuWins.innerText = `Wins: ${game.player2.wins}`
     h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
     //delayRestart()
   }
-  if (game.checkWin() === "Draw!") {
+  else {
+    console.log('win3')
     h1.innerText = "It's a draw! Rematch time!"
     h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
     //delayRestart()
   }
 }
 
-function delayRestart() {
-  setTimeout(restartGame, 3000)
-}
-
-function restartGame() {
-  location.reload()
-}
+// function delayRestart() {
+//   setTimeout(restartGame, 3000)
+// }
+//
+// function restartGame() {
+//   location.reload()
+// }
 
 
 
@@ -106,6 +113,24 @@ function restartGame() {
 
 
 //hide and show element functions
+
+function kirboProperties() {
+  playerIcon.innerHTML = `<img src="./assets/kirbo.png" style="height:150px;width:150px">`
+  cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
+  h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
+  h3.innerText = "Who will win? KIYAHAHAHAHA"
+  body.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F8F8FF) fixed"
+}
+
+function mainMenuDefault() {
+  h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
+  h3.innerText = 'Choose your game mode'
+  mode = 'classic'
+  body.style.background = ''
+  playerIcon.innerHTML = 'Player 1'
+  cpuIcon.innerHTML = 'CPU'
+}
+
 function showClassicChoices() {
   rockButton.classList.remove('hidden')
   paperButton.classList.remove('hidden')
