@@ -35,13 +35,11 @@ hammerButton.addEventListener('click', function() {
 swordButton.addEventListener('click',function() {
   classicAndKirbo('sword')
 })
-
 //Global variables
 var user = new Player('user')
 var cpu = new Player('CPU')
 var mode = 'classic'
 var game;
-
 //event handlers
 function playerChoseClassic() {
   h3.innerText = "Make your choice"
@@ -96,26 +94,30 @@ function judge() {
 
 function delaySoftRestart() {
   setTimeout(softResetMatch, 2000)
+  disableButtons()
 }
 
 function softResetMatch() {
   if (mode === "classic") {
   h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
   h3.innerText = `Make your choice`
+  enableButtons()
   }
   else if (mode === 'kirbo') {
     h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
     h3.innerText = `Who will win? KIYAHAHAHAHA`
+    enableButtons()
   }
 }
-
-//hide and show element functions
+//Change property functions
 function kirboProperties() {
   playerIcon.innerHTML = `<img src="./assets/kirbo.png" style="height:150px;width:150px">`
   cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
   h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
   h3.innerText = "Who will win? KIYAHAHAHAHA"
   body.style.backgroundImage = `url(./assets/popstar.png)`
+  h1.style.color = 'white'
+  h3.style.color = 'white'
   //body.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F8F8FF) fixed"
 }
 
@@ -126,6 +128,8 @@ function mainMenuDefault() {
   body.style.background = ''
   playerIcon.innerHTML = 'Player 1'
   cpuIcon.innerHTML = 'CPU'
+  h1.style.color = 'black'
+  h3.style.color = 'black'
 }
 
 function showClassicChoices() {
@@ -159,4 +163,22 @@ function showModeButtons() {
 function hideModeButtons() {
   classicButton.style.display = 'none'
   kirboButton.style.display = 'none'
+}
+
+function disableButtons() {
+  changeModeButton.disabled = true
+  rockButton.disabled = true
+  paperButton.disabled = true
+  scissorButton.disabled = true
+  hammerButton.disabled = true
+  swordButton.disabled = true
+}
+
+function enableButtons() {
+  changeModeButton.disabled = false
+  rockButton.disabled = false
+  paperButton.disabled = false
+  scissorButton.disabled = false
+  hammerButton.disabled = false
+  swordButton.disabled = false
 }
