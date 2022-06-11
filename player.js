@@ -5,18 +5,14 @@ class Player {
     this.wins = 0
     this.classicChoices = ['rock', 'paper', 'scissors']
     this.kirboChoices = ['rock', 'paper', 'scissors', 'hammer', 'sword']
-    //this.cpuChoice = ''
 }
   takeTurnClassic() {
-    //this.classicChoices[this.randomChoiceGenerator(3)]
     return this.randomChoiceGenerator(3);
 }
   takeTurnKirbo() {
-    //this.kirboChoices[this.randomChoiceGenerator(5)]
     return this.randomChoiceGenerator(5);
 }
   randomChoiceGenerator(modeChoiceOptions) {
-      //return Math.floor(Math.random() * modeChoiceOptions)
     var number = Math.floor(Math.random() * modeChoiceOptions)
       if (number === 0) {
         number = 'rock'

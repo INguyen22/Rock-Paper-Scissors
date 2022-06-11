@@ -7,7 +7,6 @@ var scissorButton = document.getElementById('scissorButton')
 var hammerButton = document.getElementById('hammerButton')
 var swordButton = document.getElementById('swordButton')
 var changeModeButton = document.querySelector('.back-button')
-
 var h1 = document.querySelector('h1')
 var h3 = document.querySelector('h3')
 var mainMenu = document.querySelector('.main-menu')
@@ -21,23 +20,23 @@ var cpuIcon = document.querySelector('.enemy-icon')
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
 changeModeButton.addEventListener('click', changeMode)
-
 rockButton.addEventListener('click', function() {
-  classicAndKirbo('rock') //0
+  classicAndKirbo('rock')
 })
 paperButton.addEventListener('click', function() {
-  classicAndKirbo('paper') //1
+  classicAndKirbo('paper')
 })
 scissorButton.addEventListener('click', function() {
-  classicAndKirbo('scissors') //2
+  classicAndKirbo('scissors')
 })
 hammerButton.addEventListener('click', function() {
-  classicAndKirbo('hammer') //3
+  classicAndKirbo('hammer')
 })
 swordButton.addEventListener('click',function() {
-  classicAndKirbo('sword') //4
+  classicAndKirbo('sword')
 })
 
+//Global variables
 var user = new Player('user')
 var cpu = new Player('CPU')
 var mode = 'classic'
@@ -52,7 +51,6 @@ function playerChoseClassic() {
 
 function playerChoseKirbo() {
   mode = 'kirbo'
-  console.log(mode)
   kirboProperties()
   hideModeButtons()
   showKirboChoices()
@@ -65,8 +63,6 @@ function changeMode() {
 }
 
 function classicAndKirbo(choice) {
-  // console.log('choice', choice)
-  // console.log('mode2', mode)
   game = new Game (user, cpu, mode, choice)
   console.log(mode)
   game.checkMode()
@@ -74,14 +70,13 @@ function classicAndKirbo(choice) {
 }
 
 function judge() {
-
   if (game.checkWin() === "Player1 Wins!") {
     console.log('win')
     game.player1.wins++
     h1.innerText = "You win!"
     playerWins.innerText = `Wins: ${game.player1.wins}`
     h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
-    //delayRestart()
+    delaySoftRestart()
   }
   else if (game.checkWin() === "CPU Wins!") {
     console.log('win2')
@@ -89,31 +84,32 @@ function judge() {
     h1.innerText = "You LOSE!"
     cpuWins.innerText = `Wins: ${game.player2.wins}`
     h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
-    //delayRestart()
+    delaySoftRestart()
   }
   else {
     console.log('win3')
     h1.innerText = "It's a draw! Rematch time!"
     h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
-    //delayRestart()
+    delaySoftRestart()
   }
 }
 
-// function delayRestart() {
-//   setTimeout(restartGame, 3000)
-// }
-//
-// function restartGame() {
-//   location.reload()
-// }
+function delaySoftRestart() {
+  setTimeout(softResetMatch, 2000)
+}
 
-
-
-
-
+function softResetMatch() {
+  if (mode === "classic") {
+  h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
+  h3.innerText = `Make your choice`
+  }
+  else if (mode === 'kirbo') {
+    h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
+    h3.innerText = `Who will win? KIYAHAHAHAHA`
+  }
+}
 
 //hide and show element functions
-
 function kirboProperties() {
   playerIcon.innerHTML = `<img src="./assets/kirbo.png" style="height:150px;width:150px">`
   cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
@@ -140,6 +136,9 @@ function showClassicChoices() {
 
 function showKirboChoices() {
   kirboMode.classList.remove('hidden')
+  rockButton.classList.remove('hidden')
+  paperButton.classList.remove('hidden')
+  scissorButton.classList.remove('hidden')
   changeModeButton.classList.remove('hidden')
 }
 
