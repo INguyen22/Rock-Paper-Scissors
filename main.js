@@ -49,8 +49,8 @@ function playerChoseClassic() {
 }
 
 function playerChoseKirbo() {
-  kirboProperties()
   hideModeButtons()
+  kirboProperties()
   showKirboChoices()
 }
 
