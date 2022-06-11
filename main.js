@@ -115,7 +115,8 @@ function kirboProperties() {
   cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
   h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
   h3.innerText = "Who will win? KIYAHAHAHAHA"
-  body.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F8F8FF) fixed"
+  body.style.backgroundImage = `url(./assets/popstar.png)`
+  //body.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F8F8FF) fixed"
 }
 
 function mainMenuDefault() {
