@@ -42,13 +42,11 @@ var mode = 'classic'
 var game;
 //event handlers
 function playerChoseClassic() {
-  h3.innerText = "Make your choice"
   hideModeButtons()
   showClassicChoices()
 }
 
 function playerChoseKirbo() {
-  mode = 'kirbo'
   kirboProperties()
   hideModeButtons()
   showKirboChoices()
@@ -62,14 +60,12 @@ function changeMode() {
 
 function classicAndKirbo(choice) {
   game = new Game (user, cpu, mode, choice)
-  console.log(mode)
   game.checkMode()
   judge()
 }
 
 function judge() {
   if (game.checkWin() === "Player1 Wins!") {
-    console.log('win')
     game.player1.wins++
     h1.innerText = "You win!"
     playerWins.innerText = `Wins: ${game.player1.wins}`
@@ -77,7 +73,6 @@ function judge() {
     delaySoftRestart()
   }
   else if (game.checkWin() === "CPU Wins!") {
-    console.log('win2')
     game.player2.wins++
     h1.innerText = "You LOSE!"
     cpuWins.innerText = `Wins: ${game.player2.wins}`
@@ -85,7 +80,6 @@ function judge() {
     delaySoftRestart()
   }
   else {
-    console.log('win3')
     h1.innerText = "It's a draw! Rematch time!"
     h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
     delaySoftRestart()
@@ -99,9 +93,9 @@ function delaySoftRestart() {
 
 function softResetMatch() {
   if (mode === "classic") {
-  h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
-  h3.innerText = `Make your choice`
-  enableButtons()
+    h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
+    h3.innerText = `Make your choice`
+    enableButtons()
   }
   else if (mode === 'kirbo') {
     h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
@@ -111,6 +105,7 @@ function softResetMatch() {
 }
 //Change property functions
 function kirboProperties() {
+  mode = 'kirbo'
   playerIcon.innerHTML = `<img src="./assets/kirbo.png" style="height:150px;width:150px">`
   cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
   h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
@@ -133,6 +128,7 @@ function mainMenuDefault() {
 }
 
 function showClassicChoices() {
+  h3.innerText = "Make your choice"
   rockButton.classList.remove('hidden')
   paperButton.classList.remove('hidden')
   scissorButton.classList.remove('hidden')
