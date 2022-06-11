@@ -140,6 +140,14 @@ function hide(element) {
   element.classList.add('hidden');
 }
 
+function disableElement(element) {
+  element.disabled = true
+}
+
+function enableElement(element) {
+  element.disabled = false
+}
+
 function showClassicChoices() {
   h3.innerText = "Make your choice"
   show(rockButton)
@@ -175,19 +183,19 @@ function hideModeButtons() {
 }
 
 function disableButtons() {
-  changeModeButton.disabled = true
-  rockButton.disabled = true
-  paperButton.disabled = true
-  scissorButton.disabled = true
-  hammerButton.disabled = true
-  swordButton.disabled = true
+  disableElement(changeModeButton)
+  disableElement(rockButton)
+  disableElement(paperButton)
+  disableElement(scissorButton)
+  disableElement(hammerButton)
+  disableElement(swordButton)
 }
 
 function enableButtons() {
-  changeModeButton.disabled = false
-  rockButton.disabled = false
-  paperButton.disabled = false
-  scissorButton.disabled = false
-  hammerButton.disabled = false
-  swordButton.disabled = false
+  enableElement(changeModeButton)
+  enableElement(rockButton)
+  enableElement(paperButton)
+  enableElement(scissorButton)
+  enableElement(hammerButton)
+  enableElement(swordButton)
 }
