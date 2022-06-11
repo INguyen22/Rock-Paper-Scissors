@@ -28,6 +28,7 @@ body {
   align-content: stretch;
   background-color: #FFE4E1;
   padding:20px;
+  height: 100vh;
 }
 
 .header {
@@ -122,4 +123,14 @@ h3 {
   background-color: #FFB6C1;
   transform: scale(1.075);
   transition: 0.2s ease-in;
+}
+
+.kirbo-audio {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.warning {
+  color: #F4A460
 }

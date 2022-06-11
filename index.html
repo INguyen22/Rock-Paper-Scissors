@@ -12,42 +12,48 @@
       <section class="player-details" id="player1">
         <h2 class="player-icon">Player 1</h2>
         <p id="playerWins">Wins: 0<p>
+      <section class="back-button-section">
+        <button class="back-button hidden">Change Mode</button>
+      </section>
       </section>
       <section class="header">
         <h1>Rock🪨 Paper📃 Scissors✂️</h1>
         <h3>Choose your game mode</h3>
+        <section class="main-menu">
+            <button class="mode-button" id="classicButton">
+              Classic Mode<br><br>Rules:<br>Rock>Scissors, Paper>Rock, Scissors>Paper
+            </button>
+            <button class="mode-button" id="kirboButton">
+              Kirbo Mode<br><br>Rules:<br>Hammer>Rock & Sword, Sword>Paper & Scissor, Scissor>Hammer & Paper, Paper>Hammer & Rock, Rock>Sword & Scissor
+            </button>
+        </section>
+
+        <section class="classic-and-kirbo-buttons">
+          <section class="classic-mode-view hidden">
+            <button class="input-button hidden" id="rockButton"><img class="image" src="./assets/rock.png" alt="rock"></button>
+            <button class="input-button hidden" id="paperButton"><img class="image" src="./assets/paper3.png" alt="paper"></button>
+            <button class="input-button hidden" id="scissorButton"><img class="image" src="./assets/scissor.png" alt="scissors"></button>
+          </section>
+          <section class="kirbo-mode hidden">
+            <section class="bottom-row">
+              <button class="input-button" id="hammerButton"><img class="image" src="./assets/hammer.png" alt="paper"></button>
+              <button class="input-button" id="swordButton"><img class="image" src="./assets/sword.png" alt="scissors"></button>
+            </section>
+            <div class="kirbo-audio">
+              <p class="warning">Warning! Please turn down the volume
+                 by hovering over the sound icon if you want to hear music!
+              </p>
+            </div>
+            <div class="kirbo-audio">
+              <audio controls src="./assets/marx-theme2.mp3">
+            </div>
+          </section>
+        </section>
       </section>
       <section class="player-details" id="cpu">
         <h2 class="enemy-icon">CPU</h2>
         <p id="cpuWins">Wins: 0<p>
       </section>
-    </section>
-
-    <section class="main-menu">
-        <button class="mode-button" id="classicButton">
-          Classic Mode<br><br>Rules: Rock>Scissors, Paper>Rock,<br> Scissors>Paper
-        </button>
-        <button class="mode-button" id="kirboButton">
-          Kirbo Mode<br><br>Rules: Hammer>Rock, Sword>Paper&Hammer,<br> Scissor>Hammer&Paper, Paper>Hammer
-        </button>
-    </section>
-
-    <section class="classic-and-kirbo-buttons">
-      <section class="classic-mode-view hidden">
-        <button class="input-button hidden" id="rockButton"><img class="image" src="./assets/rock.png" alt="rock"></button>
-        <button class="input-button hidden" id="paperButton"><img class="image" src="./assets/paper3.png" alt="paper"></button>
-        <button class="input-button hidden" id="scissorButton"><img class="image" src="./assets/scissor.png" alt="scissors"></button>
-      </section>
-      <section class="kirbo-mode hidden">
-        <section class="bottom-row">
-          <button class="input-button" id="hammerButton"><img class="image" src="./assets/hammer.png" alt="paper"></button>
-          <button class="input-button" id="swordButton"><img class="image" src="./assets/sword.png" alt="scissors"></button>
-        </section>
-      </section>
-    </section>
-
-    <section class="back-button-section">
-      <button class="back-button hidden">Change Mode</button>
     </section>
 
     <script type="text/javascript" src="game.js"></script>
