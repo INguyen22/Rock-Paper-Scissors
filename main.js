@@ -149,19 +149,19 @@ function showClassicChoices() {
 }
 
 function showKirboChoices() {
-  kirboMode.classList.remove('hidden')
-  rockButton.classList.remove('hidden')
-  paperButton.classList.remove('hidden')
-  scissorButton.classList.remove('hidden')
-  changeModeButton.classList.remove('hidden')
+  show(kirboMode)
+  show(rockButton)
+  show(paperButton)
+  show(scissorButton)
+  show(changeModeButton)
 }
 
 function hideInputButtons() {
-  kirboMode.classList.add('hidden')
-  rockButton.classList.add('hidden')
-  paperButton.classList.add('hidden')
-  scissorButton.classList.add('hidden')
-  changeModeButton.classList.add('hidden')
+  hide(kirboMode)
+  hide(rockButton)
+  hide(paperButton)
+  hide(scissorButton)
+  hide(changeModeButton)
 }
 
 function showModeButtons() {
