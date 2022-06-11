@@ -69,21 +69,16 @@ function classicAndKirbo(choice) {
 function judge() {
   if (game.checkWin() === "Player1 Wins!") {
     game.player1.wins++
-    h1.innerText = "You win!"
-    playerWins.innerText = `Wins: ${game.player1.wins}`
-    h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+    displayWin()
     delaySoftRestart()
   }
   else if (game.checkWin() === "CPU Wins!") {
     game.player2.wins++
-    h1.innerText = "You LOSE!"
-    cpuWins.innerText = `Wins: ${game.player2.wins}`
-    h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+    displayLose()
     delaySoftRestart()
   }
   else {
-    h1.innerText = "It's a draw! Rematch time!"
-    h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+    displayDraw()
     delaySoftRestart()
   }
 }
@@ -132,6 +127,33 @@ function mainMenuDefault() {
   h3.style.color = 'black'
 }
 
+function displayWin() {
+  h1.innerText = "You win!"
+  playerWins.innerText = `Wins: ${game.player1.wins}`
+  h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+}
+
+function displayLose() {
+  h1.innerText = "You LOSE!"
+  cpuWins.innerText = `Wins: ${game.player2.wins}`
+  h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+}
+
+function displayDraw() {
+  h1.innerText = "It's a draw! Rematch time!"
+  h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+}
+
+function showModeButtons() {
+  classicButton.style.display = ''
+  kirboButton.style.display = ''
+}
+
+function hideModeButtons() {
+  classicButton.style.display = 'none'
+  kirboButton.style.display = 'none'
+}
+
 function show(element) {
   element.classList.remove('hidden');
 }
@@ -170,16 +192,6 @@ function hideInputButtons() {
   hide(paperButton)
   hide(scissorButton)
   hide(changeModeButton)
-}
-
-function showModeButtons() {
-  classicButton.style.display = ''
-  kirboButton.style.display = ''
-}
-
-function hideModeButtons() {
-  classicButton.style.display = 'none'
-  kirboButton.style.display = 'none'
 }
 
 function disableButtons() {
