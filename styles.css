@@ -51,7 +51,7 @@ h3 {
 
 .main-menu {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .mode-button {
@@ -132,5 +132,5 @@ h3 {
 }
 
 .warning {
-  color: #F4A460
+  color: #FFA500
 }

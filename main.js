@@ -14,6 +14,8 @@ var kirboMode = document.querySelector('.kirbo-mode')
 var playerWins = document.getElementById('playerWins')
 var cpuWins = document.getElementById('cpuWins')
 var body = document.querySelector('body')
+var banner1 = document.querySelector('#player1')
+var banner2 = document.querySelector('#cpu')
 var playerIcon = document.querySelector('.player-icon')
 var cpuIcon = document.querySelector('.enemy-icon')
 //event listeners
@@ -106,6 +108,8 @@ function softResetMatch() {
 //Change property functions
 function kirboProperties() {
   mode = 'kirbo'
+  banner1.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F08080) fixed"
+  banner2.style.background = "linear-gradient(#6A5ACD 40%, #4682B4, #FFD700) fixed"
   playerIcon.innerHTML = `<img src="./assets/kirbo.png" style="height:150px;width:150px">`
   cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
   h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
@@ -113,7 +117,6 @@ function kirboProperties() {
   body.style.backgroundImage = `url(./assets/popstar.png)`
   h1.style.color = 'white'
   h3.style.color = 'white'
-  //body.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F8F8FF) fixed"
 }
 
 function mainMenuDefault() {
@@ -123,16 +126,26 @@ function mainMenuDefault() {
   body.style.background = ''
   playerIcon.innerHTML = 'Player 1'
   cpuIcon.innerHTML = 'CPU'
+  banner1.style.background = ''
+  banner2.style.background = ''
   h1.style.color = 'black'
   h3.style.color = 'black'
 }
 
+function show(element) {
+  element.classList.remove('hidden');
+}
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
 function showClassicChoices() {
   h3.innerText = "Make your choice"
-  rockButton.classList.remove('hidden')
-  paperButton.classList.remove('hidden')
-  scissorButton.classList.remove('hidden')
-  changeModeButton.classList.remove('hidden')
+  show(rockButton)
+  show(paperButton)
+  show(scissorButton)
+  show(changeModeButton)
 }
 
 function showKirboChoices() {
