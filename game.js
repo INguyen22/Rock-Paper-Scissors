@@ -15,35 +15,21 @@ class Game {
   }
 }
   checkWin() {
-   if (this.player1Input === 'rock' && this.player2Input === 'paper' ||
-      this.player1Input === 'rock' && this.player2Input === 'hammer' ||
-      this.player1Input === 'paper' && this.player2Input === 'scissors' ||
-      this.player1Input === 'paper' && this.player2Input === 'sword' ||
-      this.player1Input === 'scissors' && this.player2Input === 'rock' ||
-      this.player1Input === 'scissors' && this.player2Input === 'sword' ||
-      this.player1Input === 'hammer' && this.player2Input === 'paper' ||
-      this.player1Input === 'hammer' && this.player2Input === 'scissors' ||
-      this.player1Input === 'sword' && this.player2Input === 'rock' ||
-      this.player1Input === 'sword' && this.player2Input === 'hammer') {
+   if ((this.player1Input === 'rock' && (this.player2Input === 'paper' || this.player2Input === 'hammer')) ||
+      (this.player1Input === 'paper' && (this.player2Input === 'scissors' || this.player2Input === 'sword')) ||
+      (this.player1Input === 'scissors' && (this.player2Input === 'rock' || this.player2Input === 'sword')) ||
+      (this.player1Input === 'hammer' && (this.player2Input === 'paper' || this.player2Input === 'scissors')) ||
+      (this.player1Input === 'sword' && (this.player2Input === 'rock' || this.player2Input === 'hammer'))) {
       return this.winner = 'CPU Wins!'
     }
-    else if (this.player1Input === 'rock' && this.player2Input === 'scissors' ||
-      this.player1Input === 'rock' && this.player2Input === 'sword' ||
-      this.player1Input === 'paper' && this.player2Input === 'rock' ||
-      this.player1Input === 'paper' && this.player2Input === 'hammer' ||
-      this.player1Input === 'scissors' && this.player2Input === 'paper' ||
-      this.player1Input === 'scissors' && this.player2Input === 'hammer' ||
-      this.player1Input === 'hammer' && this.player2Input === 'rock' ||
-      this.player1Input === 'hammer' && this.player2Input === 'sword' ||
-      this.player1Input === 'sword' && this.player2Input === 'paper' ||
-      this.player1Input === 'sword' && this.player2Input === 'scissors') {
+    else if ((this.player1Input === 'rock' && (this.player2Input === 'scissors' || this.player2Input === 'sword')) ||
+      (this.player1Input === 'paper' && (this.player2Input === 'rock' || this.player2Input === 'hammer')) ||
+      (this.player1Input === 'scissors' && (this.player2Input === 'paper' || this.player2Input === 'hammer')) ||
+      (this.player1Input === 'hammer' && (this.player2Input === 'rock' || this.player2Input === 'sword')) ||
+      (this.player1Input === 'sword' && (this.player2Input === 'paper' || this.player2Input === 'scissors'))) {
       return this.winner = 'Player1 Wins!'
     }
-    else if (this.player1Input === 'rock' && this.player2Input === 'rock' ||
-      this.player1Input === 'paper' && this.player2Input === 'paper' ||
-      this.player1Input === 'scissors' && this.player2Input === 'scissors' ||
-      this.player1Input === 'hammer' && this.player2Input === 'hammer' ||
-      this.player1Input === 'sword' && this.player2Input === 'sword') {
+    else  {
       return this.winner = 'Draw!'
     }
   }
