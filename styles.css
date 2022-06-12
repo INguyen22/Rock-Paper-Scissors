@@ -19,10 +19,7 @@ body {
 .player-details {
   display: flex;
   flex-direction: column;
-  flex-wrap: nowrap;
   justify-content: space-around;
-  align-items: stretch;
-  align-content: stretch;
   background-color: #FFE4E1;
   padding:20px;
   height: 100vh;
@@ -127,6 +124,13 @@ h3 {
   background-color: #FFE4E1;
   cursor: pointer;
 }
+
+.reset-button:hover {
+  background-color: #FFB6C1;
+  transform: scale(1.075);
+  transition: 0.2s ease-in;
+}
+
 
 .back-button:hover {
   background-color: #FFB6C1;

@@ -60,7 +60,6 @@ function playerChoseKirbo() {
 }
 
 function changeMode() {
-  show(resetButton)
   mainMenuDefault()
   showModeButtons()
   hideInputButtons()
