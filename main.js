@@ -46,7 +46,7 @@ var cpu = new Player('CPU')
 var mode = 'classic'
 var game;
 playerWins.innerText = "Wins: " + (localStorage.getItem('wins:') || 0)
-//var userWins = `Wins: ${localStorage.getItem('wins:')}` || 0
+cpuWins.innerText = "Wins: " + (localStorage.getItem('wins2:') || 0)
 //event handlers
 function playerChoseClassic() {
   hideModeButtons()
@@ -81,6 +81,7 @@ function judge() {
   }
   else if (game.checkWin() === "CPU Wins!") {
     game.player2.wins++
+    cpu.saveCpuWins()
     displayLose()
     delaySoftRestart()
   }
@@ -92,6 +93,7 @@ function judge() {
 
 function resetWins() {
   localStorage.removeItem('wins:')
+  localStorage.removeItem('wins2:')
   location.reload()
 }
 
@@ -147,7 +149,7 @@ function displayWin() {
 
 function displayLose() {
   h1.innerText = "You LOSE!"
-  cpuWins.innerText = `Wins: ${game.player2.wins}`
+  cpuWins.innerText = `Wins: ${cpu.wins}`
   h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
 }
 

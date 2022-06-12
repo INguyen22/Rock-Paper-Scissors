@@ -36,7 +36,7 @@ class Game {
       this.player1Input === 'hammer' && this.player2Input === 'rock' ||
       this.player1Input === 'hammer' && this.player2Input === 'sword' ||
       this.player1Input === 'sword' && this.player2Input === 'paper' ||
-      this.player1Input === 'sword' && this.player2Input === 'paper') {
+      this.player1Input === 'sword' && this.player2Input === 'scissors') {
       return this.winner = 'Player1 Wins!'
     }
     else if (this.player1Input === 'rock' && this.player2Input === 'rock' ||
