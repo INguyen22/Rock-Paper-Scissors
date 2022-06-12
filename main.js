@@ -213,25 +213,14 @@ function hideInputButtons() {
   hide(rockButton)
   hide(paperButton)
   hide(scissorButton)
-  hide(changeModeButton)
 }
 
 function disableButtons() {
   disableElement(changeModeButton)
-  disableElement(rockButton)
-  disableElement(paperButton)
-  disableElement(scissorButton)
-  disableElement(hammerButton)
-  disableElement(swordButton)
   disableElement(resetButton)
 }
 
 function enableButtons() {
   enableElement(changeModeButton)
-  enableElement(rockButton)
-  enableElement(paperButton)
-  enableElement(scissorButton)
-  enableElement(hammerButton)
-  enableElement(swordButton)
   enableElement(resetButton)
 }
