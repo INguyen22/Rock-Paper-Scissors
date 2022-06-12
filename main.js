@@ -19,7 +19,8 @@ var banner1 = document.querySelector('#player1')
 var banner2 = document.querySelector('#cpu')
 var playerIcon = document.querySelector('.player-icon')
 var cpuIcon = document.querySelector('.enemy-icon')
-//document.querySelector('#playerWins').innerText = userWins
+var classicView = document.querySelector('.classic-mode-view')
+//var classicMode = document.querySelector('.classic-mode-view')
 //event listeners
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
@@ -40,13 +41,15 @@ hammerButton.addEventListener('click', function() {
 swordButton.addEventListener('click',function() {
   classicAndKirbo('sword')
 })
+//display
+playerWins.innerText = "Wins: " + (localStorage.getItem('wins:') || 0)
+cpuWins.innerText = "Wins: " + (localStorage.getItem('wins2:') || 0)
+//classicView.defaultValue = classicView.innerHTML
 //Global variables
 var user = new Player('user')
 var cpu = new Player('CPU')
 var mode = 'classic'
 var game;
-playerWins.innerText = "Wins: " + (localStorage.getItem('wins:') || 0)
-cpuWins.innerText = "Wins: " + (localStorage.getItem('wins2:') || 0)
 //event handlers
 function playerChoseClassic() {
   hideModeButtons()
@@ -104,12 +107,14 @@ function delaySoftRestart() {
 function softResetMatch() {
   if (mode === "classic") {
     h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
-    h3.innerText = `Make your choice`
+    h3.innerHTML = `Make your choice`
+    showClassicChoices()
     enableButtons()
   }
   else if (mode === 'kirbo') {
     h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
-    h3.innerText = `Who will win? KIYAHAHAHAHA`
+    h3.innerHTML = `Who will win? KIYAHAHAHAHA`
+    showKirboChoices()
     enableButtons()
   }
 }
@@ -143,18 +148,24 @@ function mainMenuDefault() {
 function displayWin() {
   h1.innerText = "You win!"
   playerWins.innerText = `Wins: ${user.wins}`
-  h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+  h3.innerHTML = `<img class="image" src="./assets/${game.player1Input}.png">
+   <img class="image" src="./assets/${game.player2Input}.png">`
+   hideInputButtons()
 }
 
 function displayLose() {
   h1.innerText = "You LOSE!"
   cpuWins.innerText = `Wins: ${cpu.wins}`
-  h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+  h3.innerHTML = `<img class="image" src="./assets/${game.player1Input}.png">
+   <img class="image" src="./assets/${game.player2Input}.png">`
+   hideInputButtons()
 }
 
 function displayDraw() {
   h1.innerText = "It's a draw! Rematch time!"
-  h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
+  h3.innerHTML = `<img class="image" src="./assets/${game.player1Input}.png">
+   <img class="image" src="./assets/${game.player2Input}.png">`
+   hideInputButtons()
 }
 
 function showModeButtons() {
