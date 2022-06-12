@@ -106,14 +106,10 @@ function delaySoftRestart() {
 
 function softResetMatch() {
   if (mode === "classic") {
-    h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
-    h3.innerHTML = `Make your choice`
     showClassicChoices()
     enableButtons()
   }
   else if (mode === 'kirbo') {
-    h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
-    h3.innerHTML = `Who will win? KIYAHAHAHAHA`
     showKirboChoices()
     enableButtons()
   }
@@ -195,6 +191,7 @@ function enableElement(element) {
 }
 
 function showClassicChoices() {
+  h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
   h3.innerText = "Make your choice"
   show(rockButton)
   show(paperButton)
@@ -203,6 +200,8 @@ function showClassicChoices() {
 }
 
 function showKirboChoices() {
+  h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
+  h3.innerHTML = `Who will win? KIYAHAHAHAHA`
   show(kirboMode)
   show(rockButton)
   show(paperButton)
