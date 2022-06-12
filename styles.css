@@ -65,7 +65,10 @@ h3 {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-.mode-button:hover {
+.mode-button:hover,
+.back-button:hover,
+.input-button:hover,
+.reset-button:hover {
   background-color: #FFB6C1;
   transform: scale(1.075);
   transition: 0.2s ease-in;
@@ -85,12 +88,6 @@ h3 {
   cursor: pointer;
 }
 
-.input-button:hover {
-  background-color: #FFB6C1;
-  transform: scale(1.075);
-  transition: 0.2s ease-in;
-}
-
 .image {
   height: 85px;
   width: 85px;
@@ -101,41 +98,18 @@ h3 {
   justify-content: space-evenly;
 }
 
-.back-button-section {
-  display: flex;
-	justify-content: flex-start;
-	align-items: flex-end;
-}
-
-.back-button {
-  font-family: 'Press Start 2P', cursive;
-  background-color: #FFE4E1;
-  cursor: pointer;
-}
-
+.back-button-section,
 .reset-button-section {
   display: flex;
 	justify-content: flex-start;
 	align-items: flex-end;
 }
 
+.back-button,
 .reset-button {
   font-family: 'Press Start 2P', cursive;
   background-color: #FFE4E1;
   cursor: pointer;
-}
-
-.reset-button:hover {
-  background-color: #FFB6C1;
-  transform: scale(1.075);
-  transition: 0.2s ease-in;
-}
-
-
-.back-button:hover {
-  background-color: #FFB6C1;
-  transform: scale(1.075);
-  transition: 0.2s ease-in;
 }
 
 .kirbo-audio {
