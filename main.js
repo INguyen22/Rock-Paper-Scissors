@@ -213,7 +213,6 @@ function hideInputButtons() {
   hide(rockButton)
   hide(paperButton)
   hide(scissorButton)
-  //hide(changeModeButton)
 }
 
 function disableButtons() {
