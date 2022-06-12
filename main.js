@@ -19,8 +19,6 @@ var banner1 = document.querySelector('#player1')
 var banner2 = document.querySelector('#cpu')
 var playerIcon = document.querySelector('.player-icon')
 var cpuIcon = document.querySelector('.enemy-icon')
-var classicView = document.querySelector('.classic-mode-view')
-//var classicMode = document.querySelector('.classic-mode-view')
 //event listeners
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
@@ -44,7 +42,6 @@ swordButton.addEventListener('click',function() {
 //display
 playerWins.innerText = "Wins: " + (localStorage.getItem('wins:') || 0)
 cpuWins.innerText = "Wins: " + (localStorage.getItem('wins2:') || 0)
-//classicView.defaultValue = classicView.innerHTML
 //Global variables
 var user = new Player('user')
 var cpu = new Player('CPU')
@@ -93,12 +90,6 @@ function judge() {
   }
 }
 
-function resetWins() {
-  localStorage.removeItem('wins:')
-  localStorage.removeItem('wins2:')
-  location.reload()
-}
-
 function delaySoftRestart() {
   setTimeout(softResetMatch, 2000)
   disableButtons()
@@ -114,20 +105,13 @@ function softResetMatch() {
     enableButtons()
   }
 }
-//Change property functions
-function kirboProperties() {
-  mode = 'kirbo'
-  banner1.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F08080) fixed"
-  banner2.style.background = "linear-gradient(#6A5ACD 40%, #4682B4, #FFD700) fixed"
-  playerIcon.innerHTML = `<img src="./assets/kirbo.png" style="height:150px;width:150px">`
-  cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
-  h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
-  h3.innerText = "Who will win? KIYAHAHAHAHA"
-  body.style.backgroundImage = `url(./assets/popstar.png)`
-  h1.style.color = 'white'
-  h3.style.color = 'white'
-}
 
+function resetWins() {
+  localStorage.removeItem('wins:')
+  localStorage.removeItem('wins2:')
+  location.reload()
+}
+//Change property functions
 function mainMenuDefault() {
   h1.innerText = 'Rock🪨 Paper📃 Scissors✂️'
   h3.innerText = 'Choose your game mode'
@@ -141,27 +125,42 @@ function mainMenuDefault() {
   h3.style.color = 'black'
 }
 
+function kirboProperties() {
+  mode = 'kirbo'
+  banner1.style.background = "linear-gradient(#FFB6C1 40%, #FFE4E1, #F08080) fixed"
+  banner2.style.background = "linear-gradient(#6A5ACD 40%, #4682B4, #FFD700) fixed"
+  playerIcon.innerHTML = `<img src="./assets/kirbo.png" style="height:150px;width:150px">`
+  cpuIcon.innerHTML = `<img src="./assets/metaknight.png" style="height:150px;width:150px">`
+  h1.innerHTML = `<img src="./assets/marx.png" style="height:250px;width:450px">`
+  h3.innerText = "Who will win? KIYAHAHAHAHA"
+  body.style.backgroundImage = `url(./assets/popstar.png)`
+  h1.style.color = 'white'
+  h3.style.color = 'white'
+}
+
+function h3HTML() {
+  h3.innerHTML = `<img class="image" src="./assets/${game.player1Input}.png">
+   <img class="image" src="./assets/${game.player2Input}.png">`
+}
+
 function displayWin() {
   h1.innerText = "You win!"
   playerWins.innerText = `Wins: ${user.wins}`
-  h3.innerHTML = `<img class="image" src="./assets/${game.player1Input}.png">
-   <img class="image" src="./assets/${game.player2Input}.png">`
-   hideInputButtons()
+  h3HTML()
+  hideInputButtons()
 }
 
 function displayLose() {
   h1.innerText = "You LOSE!"
   cpuWins.innerText = `Wins: ${cpu.wins}`
-  h3.innerHTML = `<img class="image" src="./assets/${game.player1Input}.png">
-   <img class="image" src="./assets/${game.player2Input}.png">`
-   hideInputButtons()
+  h3HTML()
+  hideInputButtons()
 }
 
 function displayDraw() {
   h1.innerText = "It's a draw! Rematch time!"
-  h3.innerHTML = `<img class="image" src="./assets/${game.player1Input}.png">
-   <img class="image" src="./assets/${game.player2Input}.png">`
-   hideInputButtons()
+  h3HTML()
+  hideInputButtons()
 }
 
 function showModeButtons() {
@@ -224,6 +223,7 @@ function disableButtons() {
   disableElement(scissorButton)
   disableElement(hammerButton)
   disableElement(swordButton)
+  disableElement(resetButton)
 }
 
 function enableButtons() {
@@ -233,4 +233,5 @@ function enableButtons() {
   enableElement(scissorButton)
   enableElement(hammerButton)
   enableElement(swordButton)
+  enableElement(resetButton)
 }
