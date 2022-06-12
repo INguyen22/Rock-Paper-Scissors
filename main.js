@@ -7,6 +7,7 @@ var scissorButton = document.getElementById('scissorButton')
 var hammerButton = document.getElementById('hammerButton')
 var swordButton = document.getElementById('swordButton')
 var changeModeButton = document.querySelector('.back-button')
+var resetButton = document.querySelector('.reset-button')
 var h1 = document.querySelector('h1')
 var h3 = document.querySelector('h3')
 var mainMenu = document.querySelector('.main-menu')
@@ -18,10 +19,12 @@ var banner1 = document.querySelector('#player1')
 var banner2 = document.querySelector('#cpu')
 var playerIcon = document.querySelector('.player-icon')
 var cpuIcon = document.querySelector('.enemy-icon')
+//document.querySelector('#playerWins').innerText = userWins
 //event listeners
 classicButton.addEventListener('click', playerChoseClassic)
 kirboButton.addEventListener('click', playerChoseKirbo)
 changeModeButton.addEventListener('click', changeMode)
+resetButton.addEventListener('click', resetWins)
 rockButton.addEventListener('click', function() {
   classicAndKirbo('rock')
 })
@@ -42,6 +45,8 @@ var user = new Player('user')
 var cpu = new Player('CPU')
 var mode = 'classic'
 var game;
+playerWins.innerText = "Wins: " + (localStorage.getItem('wins:') || 0)
+//var userWins = `Wins: ${localStorage.getItem('wins:')}` || 0
 //event handlers
 function playerChoseClassic() {
   hideModeButtons()
@@ -55,6 +60,7 @@ function playerChoseKirbo() {
 }
 
 function changeMode() {
+  show(resetButton)
   mainMenuDefault()
   showModeButtons()
   hideInputButtons()
@@ -69,6 +75,7 @@ function classicAndKirbo(choice) {
 function judge() {
   if (game.checkWin() === "Player1 Wins!") {
     game.player1.wins++
+    user.saveUserWins()
     displayWin()
     delaySoftRestart()
   }
@@ -81,6 +88,11 @@ function judge() {
     displayDraw()
     delaySoftRestart()
   }
+}
+
+function resetWins() {
+  localStorage.removeItem('wins:')
+  location.reload()
 }
 
 function delaySoftRestart() {
@@ -129,7 +141,7 @@ function mainMenuDefault() {
 
 function displayWin() {
   h1.innerText = "You win!"
-  playerWins.innerText = `Wins: ${game.player1.wins}`
+  playerWins.innerText = `Wins: ${user.wins}`
   h3.innerText = `You chose ${game.player1Input} and CPU chose ${game.player2Input}`
 }
 

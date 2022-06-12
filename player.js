@@ -2,7 +2,7 @@ class Player {
   constructor() {
     this.name = name
     this.token = "./assets/star.png"
-    this.wins = 0
+    this.wins = localStorage.getItem('wins:') || 0
     this.classicChoices = ['rock', 'paper', 'scissors']
     this.kirboChoices = ['rock', 'paper', 'scissors', 'hammer', 'sword']
 }
@@ -31,4 +31,8 @@ class Player {
       }
       return number
     }
+  saveUserWins() {
+    var player1Wins = this.wins
+    localStorage.setItem('wins:', player1Wins)
+}
 }

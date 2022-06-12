@@ -116,6 +116,18 @@ h3 {
   cursor: pointer;
 }
 
+.reset-button-section {
+  display: flex;
+	justify-content: flex-start;
+	align-items: flex-end;
+}
+
+.reset-button {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #FFE4E1;
+  cursor: pointer;
+}
+
 .back-button:hover {
   background-color: #FFB6C1;
   transform: scale(1.075);
