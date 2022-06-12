@@ -31,4 +31,12 @@ class Player {
       }
       return number
     }
+  saveUserWins() {
+    var player1Wins = this.wins
+    localStorage.setItem('wins:', player1Wins)
+}
+  saveCpuWins() {
+    var player2Wins = this.wins
+    localStorage.setItem('wins2:', player2Wins)
+}
 }
