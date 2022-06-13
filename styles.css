@@ -65,6 +65,16 @@ h3 {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
+.mode-title {
+  display: flex;
+  padding-top: 40px
+}
+
+.mode-rules {
+  display: flex;
+  padding-bottom: 40px
+}
+
 .mode-button:hover,
 .back-button:hover,
 .input-button:hover,
