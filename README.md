@@ -60,7 +60,7 @@ what students have learned about Javascript, HTML, and CSS during their first mo
 
 ## Deployed Page
 
-N/A as it is a private repository for now. I will add a deployed page on 06/15/22
+https://inguyen22.github.io/Rock-Paper-Scissors/
 
 ## Possible Future Extensions
 - Have the music stop if the user forgot to pause the audio when they change modes
